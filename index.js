@@ -1,4 +1,12 @@
 require('dotenv').config();
+const http = require('http');
+
+// สร้างหน้าเว็บจำลองเพื่อหลอก Render ให้ตรวจจับ Port ได้
+http.createServer((req, res) => {
+    res.write("Bot is running!");
+    res.end();
+}).listen(process.env.PORT || 3000);
+
 const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
